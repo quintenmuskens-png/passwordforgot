@@ -1,53 +1,227 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      Zermelo
-    </title>
-    <link rel="stylesheet" href="/static/v/26.11j29/css/responsive.css" type="text/css" />
-    <link rel="shortcut icon" href="/static/v/26.11j29/favicon.ico" />
-  </head>
-  <body>
+    <title>Zermelo reset</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --bg:#08090d;
+            --border:rgba(255,255,255,.09);
+            --text:#f4f5f7;
+            --muted:#9ea1ad;
+            --accent:#a78bfa;
+            --accent-soft:rgba(167,139,250,.16);
+        }
+
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+
+        body{
+            min-height:100vh;
+            padding:24px 16px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+            color:var(--text);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(124,58,237,.22), transparent 42%),
+                radial-gradient(circle at 88% 18%, rgba(56,189,248,.14), transparent 40%),
+                radial-gradient(circle at 50% 100%, rgba(236,72,153,.12), transparent 45%),
+                var(--bg);
+        }
+
+        .zermelo-body{
+            width:100%;
+            max-width:520px;
+        }
+
+        .form{
+            padding:28px 24px;
+            border:1px solid var(--border);
+            border-radius:28px;
+            background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+            box-shadow:0 24px 70px rgba(0,0,0,.42);
+            backdrop-filter:blur(22px) saturate(140%);
+            -webkit-backdrop-filter:blur(22px) saturate(140%);
+        }
+
+        @supports not (backdrop-filter:blur(1px)){
+            .form{
+                background:#15161c;
+            }
+        }
+
+        .logo{
+            display:block;
+            width:150px;
+            margin:0 auto 20px;
+        }
+
+        h2{
+            text-align:center;
+            font-size:22px;
+            font-weight:700;
+            letter-spacing:-.02em;
+            margin-bottom:14px;
+        }
+
+        .message-page p{
+            margin-bottom:12px;
+            padding:13px 15px;
+            color:var(--muted);
+            font-size:13px;
+            line-height:1.6;
+            background:rgba(255,255,255,.035);
+            border:1px solid var(--border);
+            border-radius:16px;
+        }
+
+        .login-form input[type="text"]{
+            width:100%;
+            margin-bottom:10px;
+            padding:13px 16px;
+            color:var(--text);
+            font:inherit;
+            font-size:14px;
+            background:rgba(255,255,255,.04);
+            border:1px solid var(--border);
+            border-radius:16px;
+        }
+
+        .login-form input[type="text"]:focus{
+            outline:none;
+            border-color:rgba(167,139,250,.55);
+            background:rgba(167,139,250,.08);
+        }
+
+        .error{
+            color:#fecdd3;
+            font-size:13px;
+            text-align:center;
+        }
+
+        .button{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:100%;
+            margin-top:14px;
+            padding:14px 18px;
+            color:#151029;
+            font:inherit;
+            font-size:14px;
+            font-weight:600;
+            text-decoration:none;
+            text-align:center;
+            cursor:pointer;
+            border:0;
+            border-radius:16px;
+            background:linear-gradient(135deg,#a78bfa,#7dd3fc);
+            box-shadow:0 12px 28px rgba(167,139,250,.22);
+            transition:transform .16s ease, filter .2s ease;
+        }
+
+        .button:hover{
+            transform:translateY(-1px);
+            filter:brightness(1.05);
+        }
+
+        .button:active{
+            transform:scale(.98);
+        }
+
+        .message{
+            margin-top:20px;
+            color:#6d707b;
+            font-size:11px;
+            line-height:1.6;
+            text-align:center;
+        }
+
+        .message a{
+            color:var(--muted);
+            text-decoration:none;
+        }
+
+        .message a:hover{
+            color:var(--text);
+        }
+
+        @media (max-width:420px){
+            body{
+                padding:16px 12px;
+            }
+
+            .form{
+                padding:22px 16px;
+            }
+
+            .logo{
+                width:125px;
+            }
+
+            h2{
+                font-size:19px;
+            }
+        }
+    </style>
+</head>
+<body>
     <div class="zermelo-body">
-      <div class="form">
-        <img class="logo" src="/static/v/26.11j29/img/zermelo2013.svg" alt="Zermelo Logo" />
-        <div class="message-page">
-          <h2>
-            Wachtwoord vergeten?
-          </h2>
-          <p>
-            Vul uw gebruikersnaam en email in. Als de gegevens overeen komen sturen wij een email waarmee u uw wachtwoord opnieuw in kunt stellen. De wachtwoord-herstel link is een half uur geldig.
-          </p>
-          <p>
-            Als u uw wachtwoord herstelt, loggen wij al uw sessies uit.
-          </p>
-          <form class="login-form" action="forgotpassword" method="post">
-            <input type="text" name="username" value="" id="username" placeholder="Gebruikersnaam" autofocus="" />
-            <input type="text" name="email" value="" id="email" placeholder="Emailadres" />
-            <input name="client_id" type="hidden" value="" />
-            <input name="redirect_uri" type="hidden" value="" />
-            <input name="scope" type="hidden" value="" />
-            <input name="state" type="hidden" value="" />
-            <input name="response_type" type="hidden" value="" />
-            <input name="tenant" type="hidden" value="" />
-            <p class="error">
+        <div class="form">
+            <img class="logo" src="zermelo2013.png" alt="Zermelo Logo" />
+
+            <div class="message-page">
+                <h2>Wachtwoord vergeten?</h2>
+
+                <p>
+                    Vul uw gebruikersnaam en email in. Als de gegevens overeen komen sturen wij een email waarmee u uw wachtwoord opnieuw in kunt stellen. De wachtwoord-herstel link is een half uur geldig.
+                </p>
+
+                <p>
+                    Als u uw wachtwoord herstelt, loggen wij al uw sessies uit.
+                </p>
+
+                <form class="login-form" action="https://horizon.zportal.nl/api/v3/oauth/forgotpassword" method="post">
+                    <input type="text" name="username" value="" id="username" placeholder="Gebruikersnaam" autofocus="" />
+                    <input type="text" name="email" value="" id="email" placeholder="Emailadres" />
+
+                    <input name="client_id" type="hidden" value="" />
+                    <input name="redirect_uri" type="hidden" value="" />
+                    <input name="scope" type="hidden" value="" />
+                    <input name="state" type="hidden" value="" />
+                    <input name="response_type" type="hidden" value="" />
+                    <input name="tenant" type="hidden" value="" />
+
+                    <p class="error"></p>
+
+                    <input class="button" type="submit" value="Versturen" />
+                </form>
+            </div>
+
+            <p class="message">
+                <em>
+                    Versie
+                    <a href="https://support.zermelo.nl/news/releases" target="_blank">
+                        3
+                    </a>
+                    prod2 
+                    <a 
+                    </a>
+                </em>
             </p>
-            <input class="button" type="submit" value="Versturen" />
-          </form>
         </div>
-        <p class="message">
-          <em>          Versie
-          <a href="https://support.zermelo.nl/news/releases" target="_blank">          3
-</a>
-          prod2 |
-          <a href="https://status.zermelo.nl" target="_blank">          Status portal
-</a>
-</em>
-        </p>
-      </div>
     </div>
-  </body>
+</body>
 </html>
